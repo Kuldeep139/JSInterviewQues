@@ -1,21 +1,86 @@
-Question 1 :Difference between “ == “ and “ === “ operators.
-ans. == : it is used for comparing two variables
-    === : It is used to compare two variables as well as datatypes.
+// Question 1 :Difference between “ == “ and “ === “ operators.
+// ans. == : it is used for comparing two variables.
+//         We can use == operator in order to compare the two variables even if, they are not of a similar datatype.
+// eg:  
+console.log(1 == 1);//true
 
-Question 2: What is the spread operator?
-ans: Spread operator is used to copy an existing array into another array.
+//     === : It is used to compare two variables as well as datatypes.
+//          If the variable values are of different types, then the values are considered as unequal.
 
-Question 3: What are the differences between var, let and const?
-ans: let - it is declared in local scope. hoisting is not allowed.
-    const - it is declared in local scope. hoisting is not allowed.
-    var - it is declared in global variable. hoisting is allowed.
+// eg:  
+console.log('1' ===  1);//false
 
-Question 4: What is execution context?
-ans: Execution context is the concept for describing the internal working of a code.
-    It is the execution context that decides which code section has access to the functions, variables, and objects used in the code.
+// Question 2: What is the spread operator?
+// ans: Spread operator is used to copy an existing array into another array or object.
+// It takes in an array or object and expands it into individual elements.
 
-Question 5: What is meant by first class functions?
-ans: The first class functions are the first-class object which can be stored in variables, passed as an argument in functions and returned from other functions.
+let js = ["function","array","object"];
+console.log(...js);
 
-Question 6: What are closures?
-ans: A closure can be defined as a JavaScript feature in which the inner function has access to the outer function variable.
+
+// Question 3: What are the differences between var, let and const?
+// ans: let - it is declared in local scope. hoisting is not allowed.
+//     const - it is declared in local scope. hoisting is not allowed.
+//     var - it is declared in global variable. hoisting is allowed.
+
+// var - *It is a Global scope
+//      *It can be reassigned or redeclared.
+//      *It can be modified later.
+//      *Hoisting is allowed
+
+var a = 2;
+console.log(a);
+a = 5;
+
+//let - *It is a block scope
+//      *It cannot be redeclared or reassigned.
+//      *It can be modified later.
+
+let name1; 
+name1 ="Kuldeep";
+console.log(name1);
+name1 = "Rathod"
+
+
+//const - *It is a block scope.
+//      *It cannot be redeclared or reassigned.
+//      *It cannot be modified later.
+
+const city = "Mumbai";
+console.log(city);
+
+// Question 4: What is execution context?
+// ans: When the JavaScript engine executes the JavaScript code, it creates execution contexts.
+//         Each execution context has two phases: the creation phase and the execution phase.
+//     Execution context is the concept for describing the internal working of a code.
+//         It is the execution context that decides which code section has access to the functions, variables, and objects used in the code.
+
+// Question 5: What is meant by first class functions?
+// ans: The first class functions are the first-class object which can be stored in variables, passed as an argument in functions and returned from other functions.
+//      You can pass functions to other functions as arguments, 
+//      return them from other functions as values, and store them in variables.
+
+function sayHi(){
+    return  "Heyy!!,";
+}
+function Name(greet,fname,lname) {
+    console.log(greet() + fname + lname)
+}
+Name(sayHi,"Kuldeep","Rathod")//sayHi fn passed as an argument.
+
+// Question 6: What are closures?
+// ans: A closure can be defined as a JavaScript feature in which the inner function has access to 
+//      the outer function variable.
+
+function outerFunc() {
+    let num = 1;
+
+    function innerFunc(){
+        console.log(num)
+    }
+    innerFunc()
+}
+outerFunc()
+
+
+
